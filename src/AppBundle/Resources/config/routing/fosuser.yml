@@ -1,0 +1,24 @@
+use_index:
+    path:     /
+    defaults: { _controller: "AppBundle:FosUser:index" }
+    methods:  GET
+
+use_show:
+    path:     /{id}/show
+    defaults: { _controller: "AppBundle:FosUser:show" }
+    methods:  GET
+
+use_new:
+    path:     /new
+    defaults: { _controller: "AppBundle:FosUser:new" }
+    methods:  [GET, POST]
+
+use_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AppBundle:FosUser:edit" }
+    methods:  [GET, POST]
+
+use_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AppBundle:FosUser:delete" }
+    methods:  DELETE

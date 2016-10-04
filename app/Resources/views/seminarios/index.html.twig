@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Seminarios list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Visible</th>
+                <th>Summary</th>
+                <th>Content</th>
+                <th>Source</th>
+                <th>Createdate</th>
+                <th>Editdate</th>
+                <th>Hasimage</th>
+                <th>Imagesource</th>
+                <th>Hasdocument</th>
+                <th>Documentsource</th>
+                <th>Aforo</th>
+                <th>Preinscripcion</th>
+                <th>Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for seminario in seminarios %}
+            <tr>
+                <td><a href="{{ path('seminarios_show', { 'id': seminario.id }) }}">{{ seminario.title }}</a></td>
+                <td>{% if seminario.visible %}Yes{% else %}No{% endif %}</td>
+                <td>{{ seminario.summary }}</td>
+                <td>{{ seminario.content }}</td>
+                <td>{{ seminario.source }}</td>
+                <td>{% if seminario.createdate %}{{ seminario.createdate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if seminario.editdate %}{{ seminario.editdate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if seminario.hasimage %}Yes{% else %}No{% endif %}</td>
+                <td>{{ seminario.imagesource }}</td>
+                <td>{% if seminario.hasdocument %}Yes{% else %}No{% endif %}</td>
+                <td>{{ seminario.documentsource }}</td>
+                <td>{{ seminario.aforo }}</td>
+                <td>{{ seminario.preinscripcion }}</td>
+                <td>{{ seminario.id }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('seminarios_show', { 'id': seminario.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('seminarios_edit', { 'id': seminario.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('seminarios_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,80 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Seminarios</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Title</th>
+                <td>{{ seminario.title }}</td>
+            </tr>
+            <tr>
+                <th>Visible</th>
+                <td>{% if seminario.visible %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Summary</th>
+                <td>{{ seminario.summary }}</td>
+            </tr>
+            <tr>
+                <th>Content</th>
+                <td>{{ seminario.content }}</td>
+            </tr>
+            <tr>
+                <th>Source</th>
+                <td>{{ seminario.source }}</td>
+            </tr>
+            <tr>
+                <th>Createdate</th>
+                <td>{% if seminario.createdate %}{{ seminario.createdate|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Editdate</th>
+                <td>{% if seminario.editdate %}{{ seminario.editdate|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Hasimage</th>
+                <td>{% if seminario.hasimage %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Imagesource</th>
+                <td>{{ seminario.imagesource }}</td>
+            </tr>
+            <tr>
+                <th>Hasdocument</th>
+                <td>{% if seminario.hasdocument %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Documentsource</th>
+                <td>{{ seminario.documentsource }}</td>
+            </tr>
+            <tr>
+                <th>Aforo</th>
+                <td>{{ seminario.aforo }}</td>
+            </tr>
+            <tr>
+                <th>Preinscripcion</th>
+                <td>{{ seminario.preinscripcion }}</td>
+            </tr>
+            <tr>
+                <th>Id</th>
+                <td>{{ seminario.id }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('seminarios_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('seminarios_edit', { 'id': seminario.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

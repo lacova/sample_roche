@@ -1,0 +1,117 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Seminarios
+ *
+ * @ORM\Table(name="seminarios")
+ * @ORM\Entity
+ */
+class Seminarios
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="title", type="string", length=255, nullable=false)
+     */
+    private $title;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="visible", type="boolean", nullable=true)
+     */
+    private $visible;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="summary", type="text", nullable=false)
+     */
+    private $summary;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="content", type="text", nullable=false)
+     */
+    private $content;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="source", type="string", length=255, nullable=false)
+     */
+    private $source;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="createdate", type="datetime", nullable=false)
+     */
+    private $createdate;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="editdate", type="datetime", nullable=false)
+     */
+    private $editdate;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="hasimage", type="boolean", nullable=false)
+     */
+    private $hasimage;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="imagesource", type="string", length=255, nullable=false)
+     */
+    private $imagesource;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="hasdocument", type="boolean", nullable=false)
+     */
+    private $hasdocument;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="documentsource", type="string", length=255, nullable=false)
+     */
+    private $documentsource;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="aforo", type="string", length=255, nullable=false)
+     */
+    private $aforo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="preinscripcion", type="string", length=255, nullable=false)
+     */
+    private $preinscripcion;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+
+}
+

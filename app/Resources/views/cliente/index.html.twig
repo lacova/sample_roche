@@ -1,0 +1,53 @@
+{% extends 'baseadmin.html.twig' %}
+
+{% block body %}
+    <h1>Cliente list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Codigosap</th>
+                <th>Nombre</th>
+                <th>Tipo</th>
+                <th>Facultad</th>
+                <th>Departamento</th>
+                <th>Direccion</th>
+                <th>Zip</th>
+                <th>Ciudad</th>
+                <th>Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for cliente in clientes %}
+            <tr>
+                <td><a href="{{ path('cliente_show', { 'id': cliente.id }) }}">{{ cliente.codigosap }}</a></td>
+                <td>{{ cliente.nombre }}</td>
+                <td>{{ cliente.tipo }}</td>
+                <td>{{ cliente.facultad }}</td>
+                <td>{{ cliente.departamento }}</td>
+                <td>{{ cliente.direccion }}</td>
+                <td>{{ cliente.zip }}</td>
+                <td>{{ cliente.ciudad }}</td>
+                <td>{{ cliente.id }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('cliente_show', { 'id': cliente.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('cliente_edit', { 'id': cliente.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('cliente_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

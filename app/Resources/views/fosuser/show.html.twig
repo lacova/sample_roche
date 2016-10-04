@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>FosUser</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Name</th>
+                <td>{{ fosUser.name }}</td>
+            </tr>
+            <tr>
+                <th>Surname</th>
+                <td>{{ fosUser.surname }}</td>
+            </tr>
+            <tr>
+                <th>Phone</th>
+                <td>{{ fosUser.phone }}</td>
+            </tr>
+            <tr>
+                <th>Fax</th>
+                <td>{{ fosUser.fax }}</td>
+            </tr>
+            <tr>
+                <th>Phoneext</th>
+                <td>{{ fosUser.phoneext }}</td>
+            </tr>
+            <tr>
+                <th>Center</th>
+                <td>{{ fosUser.center }}</td>
+            </tr>
+            <tr>
+                <th>Facultad</th>
+                <td>{{ fosUser.facultad }}</td>
+            </tr>
+            <tr>
+                <th>Departamento</th>
+                <td>{{ fosUser.departamento }}</td>
+            </tr>
+            <tr>
+                <th>Zip</th>
+                <td>{{ fosUser.zip }}</td>
+            </tr>
+            <tr>
+                <th>Ciudad</th>
+                <td>{{ fosUser.ciudad }}</td>
+            </tr>
+            <tr>
+                <th>Direccion</th>
+                <td>{{ fosUser.direccion }}</td>
+            </tr>
+            <tr>
+                <th>Id</th>
+                <td>{{ fosUser.id }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('use_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('use_edit', { 'id': fosUser.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

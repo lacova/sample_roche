@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>FosUser list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Phone</th>
+                <th>Fax</th>
+                <th>Phoneext</th>
+                <th>Center</th>
+                <th>Facultad</th>
+                <th>Departamento</th>
+                <th>Zip</th>
+                <th>Ciudad</th>
+                <th>Direccion</th>
+                <th>Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for fosUser in fosUsers %}
+            <tr>
+                <td><a href="{{ path('use_show', { 'id': fosUser.id }) }}">{{ fosUser.name }}</a></td>
+                <td>{{ fosUser.surname }}</td>
+                <td>{{ fosUser.phone }}</td>
+                <td>{{ fosUser.fax }}</td>
+                <td>{{ fosUser.phoneext }}</td>
+                <td>{{ fosUser.center }}</td>
+                <td>{{ fosUser.facultad }}</td>
+                <td>{{ fosUser.departamento }}</td>
+                <td>{{ fosUser.zip }}</td>
+                <td>{{ fosUser.ciudad }}</td>
+                <td>{{ fosUser.direccion }}</td>
+                <td>{{ fosUser.id }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('use_show', { 'id': fosUser.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('use_edit', { 'id': fosUser.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('use_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}
