@@ -44,5 +44,25 @@
         <option name="fixed"/>
       </options>
     </field>
+    <field name="fechaalta" column="fechaalta" type="datetime" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="eshospital" column="eshospital" type="boolean" >
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="clientede" column="clientede" type="string" length="255" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>    
+    <field name="status" column="status" type="boolean" >
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
   </entity>
 </doctrine-mapping>

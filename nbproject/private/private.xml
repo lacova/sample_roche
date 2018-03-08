@@ -3,20 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/jordi/Sites/dev.roche-as.es/html/src/AppBundle/Services/RolesHelper.php</file>
-            <file>file:/home/jordi/Sites/dev.roche-as.es/html/app/config/routing.yml</file>
-            <file>file:/home/jordi/Sites/dev.roche-as.es/html/src/AppBundle/Controller/FosUserController.php</file>
-            <file>file:/home/jordi/Sites/dev.roche-as.es/html/app/Resources/views/header/header.html.twig</file>
             <file>file:/home/jordi/Sites/dev.roche-as.es/html/src/AppBundle/Controller/UserController.php</file>
             <file>file:/home/jordi/Sites/dev.roche-as.es/html/src/AppBundle/Form/FosUserType.php</file>
             <file>file:/home/jordi/Sites/dev.roche-as.es/html/src/AppBundle/Controller/ClienteController.php</file>
             <file>file:/home/jordi/Sites/dev.roche-as.es/html/src/AppBundle/Resources/config/routing.yml</file>
             <file>file:/home/jordi/Sites/dev.roche-as.es/html/src/AppBundle/Entity/FosUser.php</file>
             <file>file:/home/jordi/Sites/dev.roche-as.es/html/app/Resources/views/base.html.twig</file>
+            <file>file:/home/jordi/Sites/dev.roche-as.es/html/app/config/routing.yml</file>
             <file>file:/home/jordi/Sites/dev.roche-as.es/html/app/Resources/views/baseadmin.html.twig</file>
             <file>file:/home/jordi/Sites/dev.roche-as.es/html/src/AppBundle/Controller/SeminariosController.php</file>
+            <file>file:/home/jordi/Sites/dev.roche-as.es/html/src/AppBundle/Controller/FosUserController.php</file>
             <file>file:/home/jordi/Sites/dev.roche-as.es/html/app/Resources/views/cliente/index.html.twig</file>
-            <file>file:/home/jordi/Sites/dev.roche-as.es/html/app/Resources/views/header/headeradmin.html.twig</file>
         </group>
     </open-files>
 </project-private>

@@ -4,24 +4,23 @@
         <meta charset="UTF-8" />
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}
-            {% stylesheets '@bootstrap_less' combine=true %}
-            <link href="{{ asset_url }}" type="text/css" rel="stylesheet" />
+            {% stylesheets '@bootstrap_css' %}
+                <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}"/>
             {% endstylesheets %}
-        {% endblock %}
+                {% stylesheets 'bundles/app/css/*' filter='cssrewrite' %}
+                <link rel="stylesheet" href="{{ asset_url }}" />
+            {% endstylesheets %}
+        {% endblock %}  
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
         
     </head>
     <body>        
-        {% block body %}
-            <header>
-                
-            </header>
-                
+        {% block body %}                
         
         {% endblock %}
         {% block javascripts %}
-            {% javascripts '@jquery_js' '@bootstrap_js' filter='?yui_js' combine=true %}
-            <script src="{{ asset_url }}"></script>
+            {% javascripts '@jquery' '@bootstrap_js' %}
+                <script type="text/javascript" src="{{ asset_url }}"></script>
             {% endjavascripts %}
         {% endblock %}
     </body>

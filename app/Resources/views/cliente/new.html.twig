@@ -1,16 +1,97 @@
-{% extends 'base.html.twig' %}
+{% extends 'baseadmin.html.twig' %}
 
 {% block body %}
-    <h1>Cliente creation</h1>
+    <header>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+              <!-- Brand and toggle get grouped for better mobile display -->
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><img src="../../bundles/app/images/logo_roche_admin.gif" vspace="0" hspace="0" border="0" align="absbottom"></a>
+              </div>
 
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
-    {{ form_end(form) }}
+              <!-- Collect the nav links, forms, and other content for toggling -->
+              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                  <li class="active"><a href="#">Gestión clientes <span class="sr-only">(current)</span></a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                  <li><a href="/">Inicio</a></li>
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pedidos<span class="caret"></span></a>
+                    <ul class="dropdown-menu">              
+                      <li><a href="/">Gestión Pedidos</a></li>
+                      <li><a href="/">Validación Pedidos</a></li>
+                    </ul>
+                  </li>  
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Gestión de Seminatios<span class="caret"></span></a>
+                    <ul class="dropdown-menu">              
+                      <li><a href="/admin/seminatios/">Listar</a></li>
+                      <li><a href="/admin/seminarios/new">Añadir</a></li>
+                    </ul>
+                  </li>
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Gestión Productos<span class="caret"></span></a>
+                    <ul class="dropdown-menu"> 
+                        <li class="dropdown-header"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Gestión LightMix<span class="caret"></span></a></li>
+                        <li><a href="/">Listar</a></li>
+                        <li><a href="/">Añadir</a></li>
+                        <li class="dropdown-header"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Gestión LightMix Modular<span class="caret"></span></a></li>
+                        <li><a href="/">Listar</a></li>
+                        <li><a href="/">Añadir</a></li>  
+                        <li class="dropdown-header"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Gestión de Contratos<span class="caret"></span></a>                              
+                        <li><a href="/">Listar</a></li>
+                        <li><a href="/">Añadir</a></li>
+                    </ul>
+                  </li>  
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Gestión Clientes<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="/admin/cliente">Listar</a></li>
+                      <li><a href="/admin/cliente/new">Añadir</a></li>
+                    </ul>
+                  </li>         
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Gestión Usuarios<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="/admin/user">Listar</a></li>
+                      <li><a href="/admin/user/new">Añadir</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="/">Actualización precios</a></li>
+                  <li><a href="/">Carga fichero DHL</a></li>
+                  <li><a href="/">Configuración admin</a></li>
+                </ul>
+              </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+          </nav>
+    </header>
+    <content>
+        <div id="content-form" class="col-lg-12">
+   
+                <h4>Añadir Cliente</h4>               
+                {{ form_start(form) }}
+                    {{ form_widget(form) }}  
+                    <div id="content-buttons-form" class="col-lg-12">
+                        <ul class="form_buttons_position">
+                            <li>
+                                <button id="buttons-form" class="btn btn-primary" type="submit">Crear</button>
+                            </li>    
+                            <li>
+                                <button id="buttons-form" class="btn btn-primary" type="button" onclick="window.location.href='{{ path('cliente_index') }}'">Retroceder sin guardar</button>
+                            </li>
+                        </ul>
+                    </div>    
+                {{ form_end(form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('cliente_index') }}">Back to the list</a>
-        </li>
-    </ul>
+        </div>
+    </content>
+    <footer>
+    </footer>
 {% endblock %}

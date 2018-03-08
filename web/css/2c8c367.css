@@ -1,0 +1,94 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 04/10/2016, 05:20:46
+    Author     : jordi
+*/
+.navbar-header{
+    float: right;
+    min-height: 92px;
+}
+
+@media (max-width: 767px) {
+    .navbar-header{
+        float: left;
+    }
+}
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 04/10/2016, 05:20:46
+    Author     : jordi
+*/
+.navbar-header {
+    float: right;
+}
+
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .active > a {
+    background-color: #fff;
+    background-image: none;
+    box-shadow: none;
+    color: #111111;
+    font-weight: bolder;
+    font-size: 22px;
+}
+
+/* forms */
+#content-form{
+
+}
+
+#content-form h4
+{
+    padding: 1% 4%;
+}
+
+#cliente div label 
+{
+    width: 22%;
+    margin-right: 1%;
+    text-align: right;
+}
+
+#content-buttons-form
+{
+    margin-top: 10px;
+    text-align: center;
+}
+
+#cliente_codigosap,#cliente_nombre,#cliente_facultad,#cliente_departamento,
+#cliente_direccion
+{
+    width :60%
+}
+
+#cliente_eshospital
+{
+    width: 30%;
+    display: inline-block;
+}
+
+#cliente_eshospital label
+{
+    width: 30px!important;
+}
+
+#buttons-form
+{
+    width: 200px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.form_buttons_position
+{
+    list-style: none;
+    display: inline-flex;
+}

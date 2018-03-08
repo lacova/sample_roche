@@ -69,6 +69,34 @@ class Cliente
     private $ciudad;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="fechaalta", type="datetime", nullable=true)
+     */   
+    private $fechaalta;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="eshospital", type="boolean", nullable=true)
+     */     
+    private $eshospital;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="clientede", type="string",length=255, nullable=true)
+     */     
+    private $clientede;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="status", type="boolean", nullable=true)
+     */  
+    private $status;
+    
+    /**
      * @var integer
      *
      * @ORM\Column(name="id", type="integer")
@@ -271,6 +299,106 @@ class Cliente
         return $this->ciudad;
     }
 
+     /**
+     * Set fechaalta
+     *
+     * @param string $fechaalta
+     *
+     * @return Cliente
+     */
+    public function setFechaalta($fechaalta)
+    {
+        if ($fechaalta != "") {
+            $this->fechaalta = $fechaalta;
+        } else {
+            $this->fechaalta = new \DateTime(date("Y-m-d H:i:s",time()));
+        }
+
+        return $this;
+    }
+
+    /**
+     * Get fechaalta
+     *
+     * @return datetime
+     */
+    public function getFechaalta()
+    {
+        return $this->fechaalta;
+    }
+ 
+    
+     /**
+     * Set status
+     *
+     * @param string $status
+     *
+     * @return Cliente
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * Get fechaalta
+     *
+     * @return datetime
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+    
+    /**
+     * Set eshospital
+     *
+     * @param string $eshospital
+     *
+     * @return Cliente
+     */
+    public function setEshospital($eshospital)
+    {
+        $this->eshospital = $eshospital;
+
+        return $this;
+    }
+
+    /**
+     * Get eshospital
+     *
+     * @return boolean
+     */
+    public function getEshospital()
+    {
+        return $this->eshospital;
+    }
+    
+    /**
+     * Set eshospital
+     *
+     * @param string $eshospital
+     *
+     * @return Cliente
+     */
+    public function setClientede($clientede)
+    {
+        $this->clientede = $clientede;
+
+        return $this;
+    }
+
+    /**
+     * Get eshospital
+     *
+     * @return boolean
+     */
+    public function getClientede()
+    {
+        return $this->clientede;
+    }    
     /**
      * Get id
      *

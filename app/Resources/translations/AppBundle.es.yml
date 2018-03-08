@@ -1,0 +1,4 @@
+appbundle:
+    form:
+        Codigosap: 'Código SAP'
+        

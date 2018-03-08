@@ -38,15 +38,33 @@ class FosUserController extends Controller
     public function newAction(Request $request)
     {
         $fosUser = new FosUser();
-
-        $roles = $this->container->getParameter('security.role_hierarchy.roles');
-        $rolesget = new RolesHelper($roles);
-        print_r($rolesget);
+        $em = $this->getDoctrine()->getManager();
+        
+        $ArrayCliente1 = $this->getClientesChoice($em);
+        $ArrayCliente2 = $this->getClientesChoice($em);
+        $ArrayCliente3 = $this->getClientesChoice($em);
+      
         $form = $this->createForm('AppBundle\Form\FosUserType', $fosUser);
         
-        $form->add('roles', 'choice', array(
+        
+        $form->add('cliente1', ChoiceType::Class, array(
+                'choices' => $ArrayCliente1,
+                'label' => 'cliente1'
+            ));
+        
+        $form->add('cliente2', ChoiceType::Class, array(
+                'choices' => $ArrayCliente2,
+                'label' => 'cliente2'
+            ));
+
+        $form->add('cliente3', ChoiceType::Class, array(
+                'choices' => $ArrayCliente3,
+                'label' => 'cliente3'
+            ));
+        
+        $form->add('roles', ChoiceType::Class, array(
                 'choices' => $this->getExistingRoles(),
-                'data' => $group->getRoles(),
+                'data' => $fosUser->getRoles(),
                 'label' => 'Roles',
                 'expanded' => true,
                 'multiple' => true,
@@ -88,10 +106,29 @@ class FosUserController extends Controller
      */
     public function editAction(Request $request, FosUser $fosUser)
     {
+        $em = $this->getDoctrine()->getManager();
         $deleteForm = $this->createDeleteForm($fosUser);
-        $roles = $this->container->getParameter('security.role_hierarchy.roles');
-        print_r($fosUser->getRoles());
+        $ArrayCliente1 = $this->getClientesChoice($em);
+        $ArrayCliente2 = $this->getClientesChoice($em);
+        $ArrayCliente3 = $this->getClientesChoice($em);
+        
         $editForm = $this->createForm('AppBundle\Form\FosUserType', $fosUser);
+        
+        $editForm->add('cliente1', ChoiceType::Class, array(
+                'choices' => $ArrayCliente1,
+                'label' => 'cliente1'
+            ));
+        
+        $editForm->add('cliente2', ChoiceType::Class, array(
+                'choices' => $ArrayCliente2,
+                'label' => 'cliente2'
+            ));
+
+        $editForm->add('cliente3', ChoiceType::Class, array(
+                'choices' => $ArrayCliente3,
+                'label' => 'cliente3'
+            ));
+        
         $editForm->add('roles', ChoiceType::Class, array(
                 'choices' => $this->getExistingRoles(),
                 'data' => $fosUser->getRoles(),
@@ -100,10 +137,13 @@ class FosUserController extends Controller
                 'multiple' => true,
                 'mapped' => true,
             ));
+
+
+        
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
-            $em = $this->getDoctrine()->getManager();
+            
             $em->persist($fosUser);
             $em->flush();
 
@@ -159,5 +199,20 @@ class FosUserController extends Controller
            $theRoles[$role] = $role;
        }
        return $theRoles;
-   } 
+    }
+    
+    public function getClientesChoice($em){
+        $clientes = $em->getRepository('AppBundle:Cliente')->findAll();
+        
+        $returncliente = array();
+        $returncliente['No tiene cliente asignado']= 0;
+        foreach($clientes as $cliente){           
+            $returncliente[$cliente->getCodigosap()." - ".$cliente->getNombre()]=$cliente->getId();
+        }
+        return $returncliente;
+    }
+    
+    public function stateAction(FosUser $fosUser){
+        
+    }
 }

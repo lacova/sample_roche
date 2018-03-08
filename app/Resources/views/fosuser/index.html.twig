@@ -1,59 +1,134 @@
-{% extends 'base.html.twig' %}
+{% extends 'baseadmin.html.twig' %}
 
 {% block body %}
-    <h1>FosUser list</h1>
+    <header>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+              <!-- Brand and toggle get grouped for better mobile display -->
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><img src="../../bundles/app/images/logo_roche_admin.gif" vspace="0" hspace="0" border="0" align="absbottom"></a>
+              </div>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Surname</th>
-                <th>Phone</th>
-                <th>Fax</th>
-                <th>Phoneext</th>
-                <th>Center</th>
-                <th>Facultad</th>
-                <th>Departamento</th>
-                <th>Zip</th>
-                <th>Ciudad</th>
-                <th>Direccion</th>
-                <th>Id</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for fosUser in fosUsers %}
-            <tr>
-                <td><a href="{{ path('use_show', { 'id': fosUser.id }) }}">{{ fosUser.name }}</a></td>
-                <td>{{ fosUser.surname }}</td>
-                <td>{{ fosUser.phone }}</td>
-                <td>{{ fosUser.fax }}</td>
-                <td>{{ fosUser.phoneext }}</td>
-                <td>{{ fosUser.center }}</td>
-                <td>{{ fosUser.facultad }}</td>
-                <td>{{ fosUser.departamento }}</td>
-                <td>{{ fosUser.zip }}</td>
-                <td>{{ fosUser.ciudad }}</td>
-                <td>{{ fosUser.direccion }}</td>
-                <td>{{ fosUser.id }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('use_show', { 'id': fosUser.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('use_edit', { 'id': fosUser.id }) }}">edit</a>
-                        </li>
+              <!-- Collect the nav links, forms, and other content for toggling -->
+              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                  <li class="active"><a href="#">Gestión Usuarios<span class="sr-only">(current)</span></a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                  <li><a href="/">Inicio</a></li>
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pedidos<span class="caret"></span></a>
+                    <ul class="dropdown-menu">              
+                      <li><a href="/">Gestión Pedidos</a></li>
+                      <li><a href="/">Validación Pedidos</a></li>
                     </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+                  </li>  
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Gestión de Seminatios<span class="caret"></span></a>
+                    <ul class="dropdown-menu">              
+                      <li><a href="/admin/seminatios/">Listar</a></li>
+                      <li><a href="/admin/seminarios/new">Añadir</a></li>
+                    </ul>
+                  </li>
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Gestión Productos<span class="caret"></span></a>
+                    <ul class="dropdown-menu"> 
+                        <li class="dropdown-header"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Gestión LightMix<span class="caret"></span></a></li>
+                        <li><a href="/">Listar</a></li>
+                        <li><a href="/">Añadir</a></li>
+                        <li class="dropdown-header"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Gestión LightMix Modular<span class="caret"></span></a></li>
+                        <li><a href="/">Listar</a></li>
+                        <li><a href="/">Añadir</a></li>  
+                        <li class="dropdown-header"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Gestión de Contratos<span class="caret"></span></a>                              
+                        <li><a href="/">Listar</a></li>
+                        <li><a href="/">Añadir</a></li>
+                    </ul>
+                  </li>  
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Gestión Clientes<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="/admin/cliente">Listar</a></li>
+                      <li><a href="/admin/cliente/new">Añadir</a></li>
+                    </ul>
+                  </li>         
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Gestión Usuarios<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="/admin/user">Listar</a></li>
+                      <li><a href="/admin/user/new">Añadir</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="/">Actualización precios</a></li>
+                  <li><a href="/">Carga fichero DHL</a></li>
+                  <li><a href="/">Configuración admin</a></li>
+                </ul>
+              </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+          </nav>
+    </header>        
+    <content>
+        <div class="col-lg-12">
+            
+            <div class="panel panel-default">        
+              <!-- Default panel contents -->
+              <div class="panel-heading">                
+                    <button type="button" class="btn btn-danger" onclick="window.location.href='{{ path('use_new') }}'"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;Crear Usuario</button> 
+              </div>
 
-    <ul>
-        <li>
-            <a href="{{ path('use_new') }}">Create a new entry</a>
-        </li>
-    </ul>
+              <!-- Table -->
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th><label>Name</label></th>
+                            <th><label>Surname</label></th>
+                            <th><label>Phone</label></th>
+                            <th><label>Fax</label></th>
+                            <th><label>Phoneext</label></th>
+                            <th><label>Center</label></th>
+                            <th><label>Facultad</label></th>
+                            <th><label>Departamento</label></th>
+                            <th><label>Zip</label></th>
+                            <th><label>Ciudad</label></th>
+                            <th><label>Direccion</label></th>
+                            <th><label>Codigosap</label></th>
+                            <th><label>Actions</label></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for fosUser in fosUsers %}
+                        <tr>
+                            <td>{{ fosUser.name }}</td>
+                            <td>{{ fosUser.surname }}</td>
+                            <td>{{ fosUser.phone }}</td>
+                            <td>{{ fosUser.fax }}</td>
+                            <td>{{ fosUser.phoneext }}</td>
+                            <td>{{ fosUser.center }}</td>
+                            <td>{{ fosUser.facultad }}</td>
+                            <td>{{ fosUser.departamento }}</td>
+                            <td>{{ fosUser.zip }}</td>
+                            <td>{{ fosUser.ciudad }}</td>
+                            <td>{{ fosUser.direccion }}</td>
+                            <td>{{ fosUser.id }}</td>
+                            <td>
+                                {% if fosUser.isEnabled() == 1 %}                                    
+                                    <button type="button" class="btn btn-warning" onclick="window.location.href='{{ path('use_state', { 'id': fosUser.id }) }}'"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>&nbsp;Desactivar</button>
+                                {% else %}
+                                    <button type="button" class="btn btn-warning" onclick="window.location.href='{{ path('use_state', { 'id': fosUser.id }) }}'"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;Activar</button>
+                                {% endif %}  
+                                    <button type="button" class="btn btn-warning" onclick="{{ path('use_edit', { 'id': fosUser.id }) }}"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;Editar</button>                                
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </content>         
 {% endblock %}

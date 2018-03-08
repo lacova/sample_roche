@@ -17,7 +17,12 @@ use_edit:
     path:     /{id}/edit
     defaults: { _controller: "AppBundle:FosUser:edit" }
     methods:  [GET, POST]
-
+    
+use_state:
+    path:     /{id}/state
+    defaults: { _controller: "AppBundle:FosUser:state" }
+    methods:  [GET, POST]
+    
 use_delete:
     path:     /{id}/delete
     defaults: { _controller: "AppBundle:FosUser:delete" }

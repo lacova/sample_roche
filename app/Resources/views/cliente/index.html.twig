@@ -1,53 +1,146 @@
 {% extends 'baseadmin.html.twig' %}
 
 {% block body %}
-    <h1>Cliente list</h1>
+    <header>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+              <!-- Brand and toggle get grouped for better mobile display -->
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><img src="../../bundles/app/images/logo_roche_admin.gif" vspace="0" hspace="0" border="0" align="absbottom"></a>
+              </div>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Codigosap</th>
-                <th>Nombre</th>
-                <th>Tipo</th>
-                <th>Facultad</th>
-                <th>Departamento</th>
-                <th>Direccion</th>
-                <th>Zip</th>
-                <th>Ciudad</th>
-                <th>Id</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for cliente in clientes %}
-            <tr>
-                <td><a href="{{ path('cliente_show', { 'id': cliente.id }) }}">{{ cliente.codigosap }}</a></td>
-                <td>{{ cliente.nombre }}</td>
-                <td>{{ cliente.tipo }}</td>
-                <td>{{ cliente.facultad }}</td>
-                <td>{{ cliente.departamento }}</td>
-                <td>{{ cliente.direccion }}</td>
-                <td>{{ cliente.zip }}</td>
-                <td>{{ cliente.ciudad }}</td>
-                <td>{{ cliente.id }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('cliente_show', { 'id': cliente.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('cliente_edit', { 'id': cliente.id }) }}">edit</a>
-                        </li>
+              <!-- Collect the nav links, forms, and other content for toggling -->
+              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                  <li class="active"><a href="#">Gestión clientes <span class="sr-only">(current)</span></a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                  <li><a href="/">Inicio</a></li>
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pedidos<span class="caret"></span></a>
+                    <ul class="dropdown-menu">              
+                      <li><a href="/">Gestión Pedidos</a></li>
+                      <li><a href="/">Validación Pedidos</a></li>
                     </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+                  </li>  
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Gestión de Seminatios<span class="caret"></span></a>
+                    <ul class="dropdown-menu">              
+                      <li><a href="/admin/seminatios/">Listar</a></li>
+                      <li><a href="/admin/seminarios/new">Añadir</a></li>
+                    </ul>
+                  </li>
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Gestión Productos<span class="caret"></span></a>
+                    <ul class="dropdown-menu"> 
+                        <li class="dropdown-header"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Gestión LightMix<span class="caret"></span></a></li>
+                        <li><a href="/">Listar</a></li>
+                        <li><a href="/">Añadir</a></li>
+                        <li class="dropdown-header"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Gestión LightMix Modular<span class="caret"></span></a></li>
+                        <li><a href="/">Listar</a></li>
+                        <li><a href="/">Añadir</a></li>  
+                        <li class="dropdown-header"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Gestión de Contratos<span class="caret"></span></a>                              
+                        <li><a href="/">Listar</a></li>
+                        <li><a href="/">Añadir</a></li>
+                    </ul>
+                  </li>  
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Gestión Clientes<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="/admin/cliente">Listar</a></li>
+                      <li><a href="/admin/cliente/new">Añadir</a></li>
+                    </ul>
+                  </li>         
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Gestión Usuarios<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="/admin/user">Listar</a></li>
+                      <li><a href="/admin/user/new">Añadir</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="/">Actualización precios</a></li>
+                  <li><a href="/">Carga fichero DHL</a></li>
+                  <li><a href="/">Configuración admin</a></li>
+                </ul>
+              </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+          </nav>
+    </header>        
+    <content>
+        <div class="col-lg-12">
+            
+            <div class="panel panel-default">
+              <!-- Default panel contents -->
+              <div class="panel-heading">
+                    <form class="form-inline col-lg-5">
+                      <div class="form-group">
+                        <label for="ordenar_por">Ordenar por:</label>
+                        <select name="ordenar_por" size="1">
+                            <option value="0">Nombre del cliente</option>
+                            <option value="1">Código SAP de cliente</option>
+                        </select>        
+                      </div>
+                      <button type="submit" class="btn btn-primary">IR</button>
+                    </form>
+                    <form class="form-inline col-lg-5">
+                      <div class="form-group">
+                        <label for="criterio">Buscar por:</label>
+                        <select name="criterio" size="1" class="FORM_FIELD_roche">
+                            <option selected="" value="0">-- Todos los clientes --</option>
+                            <option value="1">Nombre del cliente</option>
+                            <option value="2">Código SAP de cliente</option>
+                        </select>
+                        <input name="valor" size="10" maxlength="50" value="" class="form-control" type="text">
+                      </div>
+                      <button type="submit" class="btn btn-primary">IR</button>
+                    </form>                  
+                    <button type="button" class="btn btn-danger" onclick="window.location.href='{{ path('cliente_new') }}'"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;Crear cliente</button> 
+              </div>
 
-    <ul>
-        <li>
-            <a href="{{ path('cliente_new') }}">Create a new entry</a>
-        </li>
-    </ul>
+              <!-- Table -->
+              <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Codigosap</th>
+                            <th>Nombre</th>
+                            <th>Facultad</th>
+                            <th>Departamento</th>
+                            <th>Direccion</th>
+                            <th>Zip</th>
+                            <th>Ciudad</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for cliente in clientes %}
+                        <tr>
+                            <td><a href="{{ path('cliente_edit', { 'id': cliente.id }) }}">{{ cliente.codigosap }}</a></td>
+                            <td>{{ cliente.nombre }}</td>
+                            <td>{{ cliente.facultad }}</td>
+                            <td>{{ cliente.departamento }}</td>
+                            <td>{{ cliente.direccion }}</td>
+                            <td>{{ cliente.zip }}</td>
+                            <td>{{ cliente.ciudad }}</td>                           
+                            <td>
+                                {% if cliente.status == 1 %}                                    
+                                    <button type="button" class="btn btn-warning" onclick="window.location.href='{{ path('cliente_state', { 'id': cliente.id }) }}'"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>&nbsp;Desactivar</button>
+                                {% else %}
+                                    <button type="button" class="btn btn-warning" onclick="window.location.href='{{ path('cliente_state', { 'id': cliente.id }) }}'"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;Activar</button>
+                                {% endif %}    
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>    
+    </content>
+    <footer>
+    </footer>
 {% endblock %}

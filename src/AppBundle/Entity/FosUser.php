@@ -87,6 +87,26 @@ class FosUser extends BaseUser
     private $direccion;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="cliente1", type="integer", nullable=false)
+     */
+    private $cliente1;    
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="cliente2", type="integer", nullable=false)
+     */
+    private $cliente2;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="cliente3", type="integer", nullable=false)
+     */
+    private $cliente3;     
+    /**
      * Set name
      *
      * @param string $name
@@ -350,4 +370,76 @@ class FosUser extends BaseUser
         return $this->direccion;
     }
 
+        /**
+     * Get cliente1
+     *
+     * @return string
+     */
+    public function getCliente1()
+    {
+        return $this->cliente1;
+    }
+
+    /**
+     * Set cliente1
+     *
+     * @param string $cliente
+     *
+     * @return FosUser
+     */
+    public function setCliente1($cliente)
+    {
+        $this->cliente1 = $cliente;
+
+        return $this;
+    }   
+    
+    /**
+     * Get cliente1
+     *
+     * @return string
+     */
+    public function getCliente2()
+    {
+        return $this->cliente2;
+    }
+
+    /**
+     * Set cliente2
+     *
+     * @param string $cliente
+     *
+     * @return FosUser
+     */
+    public function setCliente2($cliente)
+    {
+        $this->cliente2 = $cliente;
+
+        return $this;
+    }
+    
+    
+    /**
+     * Get cliente3
+     *
+     * @return string
+     */
+    public function getCliente3()
+    {
+        return $this->cliente3;
+    }
+
+    /**
+     * Set cliente3
+     *
+     * @param string $cliente
+     *
+     * @return FosUser
+     */
+    public function setCliente3($cliente)
+    {
+        $this->cliente3 = $cliente;
+
+        return $this;
+    }
 }

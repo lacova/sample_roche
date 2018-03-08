@@ -22,3 +22,8 @@ cliente_delete:
     path:     /{id}/delete
     defaults: { _controller: "AppBundle:Cliente:delete" }
     methods:  DELETE
+    
+cliente_state:
+    path:     /{id}/changestate
+    defaults: { _controller: "AppBundle:Cliente:changestate" }
+    methods:  GET    

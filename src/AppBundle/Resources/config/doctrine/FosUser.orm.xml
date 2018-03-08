@@ -64,5 +64,20 @@
         <option name="fixed"/>
       </options>
     </field>
+    <field name="cliente1" column="cliente1" type="integer" >
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="cliente2" column="cliente2" type="integer" >
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="cliente3" column="cliente3" type="integer" >
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>    
   </entity>
 </doctrine-mapping>
